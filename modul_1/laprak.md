@@ -415,7 +415,7 @@ int main() {
 
 ### Output Unguided 1 :
 
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 1_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided1.png)
 
 ## Penjelasan Kode
 
@@ -475,11 +475,11 @@ int main() {
 
 ##### Output 1
 
-![Screenshot Output Unguided 2_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 2_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided2.png)
 
 ##### Output 2
 
-![Screenshot Output Unguided 2_2](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 2_2](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided2_2.png)
 
 ## Penjelasan Kode
 
@@ -528,11 +528,11 @@ int main() {
 
 ##### Output 1
 
-![Screenshot Output Unguided 3_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 3_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided3.png)
 
 ##### Output 2
 
-![Screenshot Output Unguided 3_2](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 3_2](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided3_2.png)
 
 ## Penjelasan Kode
 
@@ -544,10 +544,15 @@ Setelah spasi dicetak, barulah dijalankan perulangan yang sama seperti sebelumny
 
 ## Kesimpulan
 
-...
+Berdasarkan dasar teori dan seluruh contoh program yang telah dibahas, dapat disimpulkan bahwa C++ adalah bahasa pemrograman yang dibangun di atas struktur dasar berupa header, fungsi `main()`, serta pernyataan yang diakhiri titik koma. Program dalam C++ bekerja dengan memanfaatkan variabel dan tipe data (seperti `int`, `float`, `double`, dan `char`) untuk menyimpan nilai, serta fungsi `cin` dan `cout` sebagai sarana interaksi antara program dan pengguna.
+
+Dari contoh-contoh program yang diberikan, terlihat bagaimana operator aritmatika, assignment, serta increment/decrement (`++`, `--`) memengaruhi hasil perhitungan, termasuk pentingnya memperhatikan tipe data saat melakukan pembagian agar tidak terjadi pemotongan nilai desimal (*integer division*). Struktur kondisional (`if`, `if-else`, `switch`) terbukti berguna untuk mengambil keputusan berdasarkan suatu syarat, seperti pada program perhitungan diskon dan penentuan hari kerja/libur, sedangkan struktur perulangan (`for`, `while`, `do-while`) memungkinkan suatu blok kode dieksekusi berulang kali secara efisien, seperti pada pembuatan pola *mirror* berbentuk kerucut.
+
+Selain itu, penggunaan `struct` menunjukkan bagaimana beberapa data dengan tipe berbeda dapat dikelompokkan menjadi satu kesatuan, dan ketika dikombinasikan dengan *array*, sangat berguna untuk mengelola banyak data sekaligus, seperti data siswa. Latihan-latihan yang diberikan — mulai dari operasi aritmatika dua bilangan, konversi angka menjadi tulisan, hingga pembuatan pola *mirror* — pada dasarnya merupakan penerapan langsung dari seluruh konsep dasar tersebut, sehingga membuktikan bahwa penguasaan tipe data, operator, struktur kontrol, dan fungsi merupakan fondasi penting sebelum mempelajari struktur data yang lebih kompleks.
 
 ## Referensi
 
-[1] ...
-<br>[2] ...
-<br>...
+[1] Modul Praktikum Struktur Data — Modul 1, Fakultas Informatika, Telkom University.
+<br>[2] Stroustrup, B. (2013). *The C++ Programming Language* (4th ed.). Addison-Wesley.
+<br>[3] cplusplus.com. *C++ Language Tutorial*. https://www.cplusplus.com/doc/tutorial/
+<br>[4] Code::Blocks Official Website. http://www.codeblocks.org
