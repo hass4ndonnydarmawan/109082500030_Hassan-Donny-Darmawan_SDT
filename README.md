@@ -1,4 +1,4 @@
-# Repository Praktikum Algoritma Pemrograman 2
+# Laporan Praktikum Struktur Data
 
 Nama : Hassan Donny Darmawan
 <br>NIM : 109082500030
