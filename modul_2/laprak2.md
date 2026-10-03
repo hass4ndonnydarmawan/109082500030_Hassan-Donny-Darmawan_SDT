@@ -467,7 +467,7 @@ Prosedur `tukarReference()` memiliki logika yang sama, tetapi parameternya berti
 
 Di dalam fungsi `main()`, dideklarasikan tiga variabel `x`, `y`, dan `z` bertipe `int`. Program meminta pengguna memasukkan ketiga nilai dengan `cin`, lalu menampilkan nilai sebelum ditukar. Pemanggilan `tukarPointer(&x, &y, &z)` mengirim alamat setiap variabel menggunakan operator `&`, sedangkan `tukarReference(x, y, z)` cukup mengirim variabelnya langsung. Penukaran dilakukan dua kali berturut-turut pada variabel yang sama, sehingga hasil reference adalah hasil pointer yang diputar sekali lagi. Sebagai contoh, jika pengguna memasukkan 1, 2, dan 3, maka setelah `tukarPointer()` nilainya menjadi 2, 3, 1, dan setelah `tukarReference()` nilainya menjadi 3, 1, 2. Program berakhir dengan `return 0;`.
 
-### 3. ##### Diketahui sebuah array 1 dimensi sebagai berikut:
+### 3. Diketahui sebuah array 1 dimensi sebagai berikut:
  
 ```
 arrA = {48, 2, 7, 21, 5, 20, 77, 9, 10, 1}
