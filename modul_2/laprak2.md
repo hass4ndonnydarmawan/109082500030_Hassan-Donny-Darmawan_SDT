@@ -306,7 +306,83 @@ Setelah tukarReference: a = 10, b = 5
 ### 1. 
 
 ```C++
-source
+#include <iostream>
+using namespace std;
+
+void inputMatriks(int m[3][3], char nama) {
+    cout << "Masukkan matriks " << nama << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << nama << "[" << i << "][" << j << "] = ";
+            cin >> m[i][j];
+        }
+    }
+}
+
+void tampilMatriks(int m[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << m[i][j] << "\t";
+        }
+        cout << endl;
+    }
+}
+
+void tambah(int a[3][3], int b[3][3], int c[3][3]) {
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            c[i][j] = a[i][j] + b[i][j];
+}
+
+void kurang(int a[3][3], int b[3][3], int c[3][3]) {
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            c[i][j] = a[i][j] - b[i][j];
+}
+
+void kali(int a[3][3], int b[3][3], int c[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            c[i][j] = 0;
+            for (int k = 0; k < 3; k++)
+                c[i][j] += a[i][k] * b[k][j];
+        }
+    }
+}
+
+int main() {
+    int A[3][3], B[3][3], C[3][3];
+    int pilih;
+
+    inputMatriks(A, 'A');
+    inputMatriks(B, 'B');
+
+    do {
+        cout << "\n--- Menu Matriks ---" << endl;
+        cout << "1. Penjumlahan" << endl;
+        cout << "2. Pengurangan" << endl;
+        cout << "3. Perkalian" << endl;
+        cout << "0. Keluar" << endl;
+        cout << "Pilih: ";
+        cin >> pilih;
+
+        if (pilih == 1) {
+            tambah(A, B, C);
+            cout << "Hasil A + B:" << endl;
+            tampilMatriks(C);
+        } else if (pilih == 2) {
+            kurang(A, B, C);
+            cout << "Hasil A - B:" << endl;
+            tampilMatriks(C);
+        } else if (pilih == 3) {
+            kali(A, B, C);
+            cout << "Hasil A x B:" << endl;
+            tampilMatriks(C);
+        }
+    } while (pilih != 0);
+
+    return 0;
+}
 
 ```
 
@@ -316,11 +392,54 @@ source
 
 ## Penjelasan Kode
 
+Program ini menunjukkan penggunaan prosedur dan array dua dimensi dalam C++, yaitu operasi penjumlahan, pengurangan, dan perkalian pada dua matriks berukuran 3x3. Di awal program, `#include <iostream>` memuat pustaka `cin` dan `cout`, sedangkan `using namespace std;` membuat keduanya dapat ditulis tanpa awalan `std::`. Semua prosedur ditulis sebelum `main()` sehingga tidak diperlukan prototipe. Kata kunci `void` menandakan bahwa prosedur tidak mengembalikan nilai, sehingga hasil perhitungan disimpan langsung ke dalam matriks yang dikirim sebagai parameter.
+
+Prosedur `inputMatriks()` menerima matriks `m` dan sebuah karakter `nama` yang dipakai sebagai label saat meminta input. Dua perulangan `for` bersarang dengan variabel `i` sebagai indeks baris dan `j` sebagai indeks kolom berjalan dari 0 sampai 2, sehingga seluruh sembilan elemen terisi lewat `cin >> m[i][j]`. Prosedur `tampilMatriks()` bekerja dengan pola perulangan yang sama, tetapi mencetak setiap elemen diikuti `\t` agar tersusun rapi per kolom, dan `endl` setiap satu baris selesai dicetak. Karena parameter berupa array, yang dikirim ke prosedur adalah alamat array aslinya, bukan salinan. Akibatnya, isi matriks yang diubah di dalam `inputMatriks()` ikut berubah di `main()`.
+
+Prosedur `tambah()` dan `kurang()` menerima tiga matriks, yaitu `a`, `b`, dan `c`. Pada setiap pasangan indeks `[i][j]`, elemen `a` dan `b` dijumlahkan (atau dikurangkan), lalu hasilnya disimpan ke `c[i][j]`. Prosedur `kali()` sedikit berbeda karena memakai tiga perulangan bersarang. Untuk setiap elemen hasil `c[i][j]`, nilainya dikosongkan dulu dengan `c[i][j] = 0`. Perulangan `k` kemudian menjumlahkan hasil kali `a[i][k] * b[k][j]`, yaitu baris ke-`i` dari matriks `a` dikalikan dengan kolom ke-`j` dari matriks `b`. Inisialisasi dengan 0 penting agar hasil perkalian sebelumnya yang masih tersimpan di `c` tidak ikut terjumlah.
+
+Di dalam fungsi `main()`, dideklarasikan tiga matriks `A`, `B`, dan `C` bertipe `int`, serta variabel `pilih` untuk menyimpan pilihan menu. Program memanggil `inputMatriks(A, 'A')` dan `inputMatriks(B, 'B')` agar pengguna mengisi kedua matriks. Setelah itu, perulangan `do-while` menampilkan menu dan membaca pilihan dengan `cin`. Jika `pilih` bernilai 1, 2, atau 3, program memanggil `tambah()`, `kurang()`, atau `kali()` dengan `C` sebagai penampung hasil, lalu mencetaknya dengan `tampilMatriks(C)`. Perulangan terus berjalan selama `pilih` tidak sama dengan 0, sehingga pengguna bisa mencoba semua operasi tanpa mengisi ulang matriks. Sebagai contoh, jika A berisi 1 sampai 9 secara berurutan dan B berisi 9 sampai 1, maka memilih menu 1 menghasilkan matriks yang seluruh elemennya bernilai 10. Program berakhir saat pengguna memasukkan 0, dan ditutup dengan `return 0;`.
 
 ### 2. (isi dengan soal unguided 2)
 
 ```C++
-source
+#include <iostream>
+using namespace std;
+
+void tukarPointer(int *a, int *b, int *c) {
+    int temp = *a;
+    *a = *b;
+    *b = *c;
+    *c = temp;
+}
+
+void tukarReference(int &a, int &b, int &c) {
+    int temp = a;
+    a = b;
+    b = c;
+    c = temp;
+}
+
+int main() {
+    int x, y, z;
+
+    cout << "Masukkan x: ";
+    cin >> x;
+    cout << "Masukkan y: ";
+    cin >> y;
+    cout << "Masukkan z: ";
+    cin >> z;
+
+    cout << "\nSebelum: x = " << x << ", y = " << y << ", z = " << z << endl;
+
+    tukarPointer(&x, &y, &z);
+    cout << "Pointer: x = " << x << ", y = " << y << ", z = " << z << endl;
+
+    tukarReference(x, y, z);
+    cout << "Reference: x = " << x << ", y = " << y << ", z = " << z << endl;
+
+    return 0;
+}
 ```
 
 ### Output Unguided 2 :
@@ -334,12 +453,81 @@ source
 ![Screenshot Output Unguided 2_2](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided2_2.png)
 
 ## Penjelasan Kode
+Program ini menunjukkan penggunaan prosedur dengan parameter pointer dan reference dalam C++, yaitu prosedur `tukarPointer()` dan `tukarReference()` yang menukar nilai dari tiga variabel secara berputar. Di awal program, `#include <iostream>` memuat pustaka `cin` dan `cout`, sedangkan `using namespace std;` membuat keduanya dapat ditulis tanpa awalan `std::`. Kedua prosedur ditulis sebelum `main()` sehingga tidak diperlukan prototipe. Kata kunci `void` menandakan bahwa prosedur tidak mengembalikan nilai, karena hasil penukaran langsung mengubah variabel asli yang dikirim dari `main()`.
 
+Prosedur `tukarPointer()` menerima tiga parameter bertipe pointer, yaitu `int *a`, `int *b`, dan `int *c`, yang masing-masing menyimpan alamat sebuah variabel (*call by pointer*). Nilai yang ditunjuk alamat tersebut diakses dengan operator `*`, sehingga `*a` berarti isi variabel yang alamatnya disimpan di `a`. Pertama, `*a` disimpan ke variabel sementara `temp` agar tidak hilang. Lalu `*a` diisi dengan `*b`, `*b` diisi dengan `*c`, dan `*c` diisi dengan `temp`. Hasilnya, nilai bergeser satu posisi ke kiri: isi pertama menjadi isi kedua, isi kedua menjadi isi ketiga, dan isi ketiga menjadi isi pertama.
+
+Prosedur `tukarReference()` memiliki logika yang sama, tetapi parameternya bertipe reference, yaitu `int &a`, `int &b`, dan `int &c` (*call by reference*). Reference adalah nama lain dari variabel asli, sehingga `a`, `b`, dan `c` dapat dipakai langsung tanpa operator `*`. Variabel `temp` menyimpan nilai `a`, lalu `a = b`, `b = c`, dan `c = temp`. Perbedaan utamanya ada pada penulisan: pointer memerlukan operator `*` saat mengakses nilai dan operator `&` saat memanggil prosedur, sedangkan reference ditulis seperti variabel biasa.
+
+Di dalam fungsi `main()`, dideklarasikan tiga variabel `x`, `y`, dan `z` bertipe `int`. Program meminta pengguna memasukkan ketiga nilai dengan `cin`, lalu menampilkan nilai sebelum ditukar. Pemanggilan `tukarPointer(&x, &y, &z)` mengirim alamat setiap variabel menggunakan operator `&`, sedangkan `tukarReference(x, y, z)` cukup mengirim variabelnya langsung. Penukaran dilakukan dua kali berturut-turut pada variabel yang sama, sehingga hasil reference adalah hasil pointer yang diputar sekali lagi. Sebagai contoh, jika pengguna memasukkan 1, 2, dan 3, maka setelah `tukarPointer()` nilainya menjadi 2, 3, 1, dan setelah `tukarReference()` nilainya menjadi 3, 1, 2. Program berakhir dengan `return 0;`.
 
 ### 3. (isi dengan soal unguided 3)
 
 ```C++
-source
+#include <iostream>
+using namespace std;
+
+int cariMaks(int arr[], int n) {
+    int maks = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > maks) {
+            maks = arr[i];
+        }
+    }
+    return maks;
+}
+
+int cariMin(int arr[], int n) {
+    int min = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+void hitungRata(int arr[], int n, double &rata) {
+    int total = 0;
+    for (int i = 0; i < n; i++) {
+        total += arr[i];
+    }
+    rata = (double)total / n;
+}
+
+int main() {
+    int arrA[10] = {48, 2, 7, 21, 5, 20, 77, 9, 10, 1};
+    int n = 10;
+    double rata;
+    int pilih;
+
+    do {
+        cout << "\n--- Menu Program Array ---" << endl;
+        cout << "1. Tampilkan isi array" << endl;
+        cout << "2. Cari nilai maksimum" << endl;
+        cout << "3. Cari nilai minimum" << endl;
+        cout << "4. Hitung nilai rata - rata" << endl;
+        cout << "0. Keluar" << endl;
+        cout << "Pilih: ";
+        cin >> pilih;
+
+        if (pilih == 1) {
+            for (int i = 0; i < n; i++) {
+                cout << arrA[i] << " ";
+            }
+            cout << endl;
+        } else if (pilih == 2) {
+            cout << "Nilai maksimum: " << cariMaks(arrA, n) << endl;
+        } else if (pilih == 3) {
+            cout << "Nilai minimum: " << cariMin(arrA, n) << endl;
+        } else if (pilih == 4) {
+            hitungRata(arrA, n, rata);
+            cout << "Nilai rata-rata: " << rata << endl;
+        }
+    } while (pilih != 0);
+
+    return 0;
+}
 ```
 
 ### Output Unguided 3 :
@@ -357,11 +545,19 @@ source
 
 ## Kesimpulan
 
-Berdasarkan dasar teori dan seluruh contoh program yang telah dibahas, dapat disimpulkan bahwa C++ adalah bahasa pemrograman yang dibangun di atas struktur dasar berupa header, fungsi `main()`, serta pernyataan yang diakhiri titik koma. Program dalam C++ bekerja dengan memanfaatkan variabel dan tipe data (seperti `int`, `float`, `double`, dan `char`) untuk menyimpan nilai, serta fungsi `cin` dan `cout` sebagai sarana interaksi antara program dan pengguna.
+## Kesimpulan
 
-Dari contoh-contoh program yang diberikan, terlihat bagaimana operator aritmatika, assignment, serta increment/decrement (`++`, `--`) memengaruhi hasil perhitungan, termasuk pentingnya memperhatikan tipe data saat melakukan pembagian agar tidak terjadi pemotongan nilai desimal (*integer division*). Struktur kondisional (`if`, `if-else`, `switch`) terbukti berguna untuk mengambil keputusan berdasarkan suatu syarat, seperti pada program perhitungan diskon dan penentuan hari kerja/libur, sedangkan struktur perulangan (`for`, `while`, `do-while`) memungkinkan suatu blok kode dieksekusi berulang kali secara efisien, seperti pada pembuatan pola *mirror* berbentuk kerucut.
+Berdasarkan Modul 2 dan latihan soal yang dikerjakan, dapat disimpulkan bahwa array, pointer, fungsi, dan prosedur adalah dasar penting dalam pemrograman C++ karena membantu program menjadi lebih terstruktur, efisien, dan mudah dikembangkan.
 
-Selain itu, penggunaan `struct` menunjukkan bagaimana beberapa data dengan tipe berbeda dapat dikelompokkan menjadi satu kesatuan, dan ketika dikombinasikan dengan *array*, sangat berguna untuk mengelola banyak data sekaligus, seperti data siswa. Latihan-latihan yang diberikan — mulai dari operasi aritmatika dua bilangan, konversi angka menjadi tulisan, hingga pembuatan pola *mirror* — pada dasarnya merupakan penerapan langsung dari seluruh konsep dasar tersebut, sehingga membuktikan bahwa penguasaan tipe data, operator, struktur kontrol, dan fungsi merupakan fondasi penting sebelum mempelajari struktur data yang lebih kompleks.
+Array adalah kumpulan data bertipe sama yang disimpan berurutan di memori dan diakses lewat indeks yang dimulai dari 0. Array satu dimensi dipakai pada soal 3 untuk menyimpan `arrA` dan mencari nilai minimum, maksimum, serta rata-ratanya. Array dua dimensi menyerupai tabel dengan indeks baris dan kolom. Pada soal 1, array dua dimensi dipakai untuk menyimpan matriks 3x3 dan memprosesnya dengan perulangan `for` bersarang. Penjumlahan dan pengurangan cukup dengan dua perulangan, sedangkan perkalian membutuhkan tiga perulangan karena setiap elemen hasil diperoleh dari baris matriks pertama dikalikan dengan kolom matriks kedua.
+
+Pointer adalah variabel yang menyimpan alamat memori variabel lain. Operator `&` dipakai untuk mengambil alamat suatu variabel, sedangkan operator `*` dipakai untuk mengakses nilai pada alamat yang ditunjuk. Pointer juga berhubungan erat dengan array, karena nama array pada dasarnya menunjuk ke alamat elemen pertamanya. Karena itu, array yang dikirim ke fungsi atau prosedur tidak disalin, sehingga perubahan di dalam prosedur ikut mengubah array aslinya.
+
+Fungsi adalah blok kode yang mengembalikan nilai, sedangkan prosedur (`void`) adalah blok kode yang tidak mengembalikan nilai. Keduanya membuat program terbagi menjadi modul-modul kecil dan mengurangi pengulangan kode. Pada soal 3, pencarian nilai maksimum dan minimum dibuat sebagai fungsi karena menghasilkan satu nilai, sedangkan perhitungan rata-rata dibuat sebagai prosedur yang hasilnya dikirim kembali lewat parameter.
+
+Ada tiga cara melewatkan parameter. Pada *call by value*, nilai parameter aktual disalin ke parameter formal sehingga variabel asli tidak berubah. Pada *call by pointer*, yang dikirim adalah alamat variabel (`&a`) dan diterima oleh parameter pointer (`int *x`), sehingga nilai variabel asli dapat diubah lewat operator `*`. Pada *call by reference*, parameter formal dideklarasikan dengan `&` (`int &x`) dan menjadi nama lain dari variabel asli, sehingga perubahannya langsung berlaku tanpa operator tambahan saat pemanggilan. Soal 2 menunjukkan perbedaan kedua cara ini lewat `tukarPointer()` dan `tukarReference()`, yang sama-sama menukar nilai tiga variabel di luar fungsi. Perbedaannya hanya pada penulisan: pointer memakai `*` dan `&`, sedangkan reference ditulis seperti variabel biasa.
+
+Dengan mengerjakan ketiga soal ini, kita memahami bahwa pemilihan antara fungsi dan prosedur serta cara melewatkan parameter harus disesuaikan dengan kebutuhan program. Fungsi dipakai jika hanya perlu satu nilai balik. Pointer atau reference dipakai jika nilai variabel asli perlu diubah atau ada lebih dari satu hasil yang harus dikembalikan.
 
 ## Referensi
 
