@@ -388,7 +388,13 @@ int main() {
 
 ### Output Unguided 1 :
 
-![Screenshot Output Unguided 1_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided1.png)
+##### Output 1
+
+![Screenshot Output Unguided 1_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_2/output/1.1.png)
+
+##### Output 2
+
+![Screenshot Output Unguided 1_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_2/output/1.2.png)
 
 ## Penjelasan Kode
 
@@ -446,11 +452,11 @@ int main() {
 
 ##### Output 1
 
-![Screenshot Output Unguided 2_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided2.png)
+![Screenshot Output Unguided 2_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_2/output/2.1.png)
 
 ##### Output 2
 
-![Screenshot Output Unguided 2_2](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided2_2.png)
+![Screenshot Output Unguided 2_2](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_2/output/2.2.png)
 
 ## Penjelasan Kode
 Program ini menunjukkan penggunaan prosedur dengan parameter pointer dan reference dalam C++, yaitu prosedur `tukarPointer()` dan `tukarReference()` yang menukar nilai dari tiga variabel secara berputar. Di awal program, `#include <iostream>` memuat pustaka `cin` dan `cout`, sedangkan `using namespace std;` membuat keduanya dapat ditulis tanpa awalan `std::`. Kedua prosedur ditulis sebelum `main()` sehingga tidak diperlukan prototipe. Kata kunci `void` menandakan bahwa prosedur tidak mengembalikan nilai, karena hasil penukaran langsung mengubah variabel asli yang dikirim dari `main()`.
@@ -534,16 +540,16 @@ int main() {
 
 ##### Output 1
 
-![Screenshot Output Unguided 3_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided3.png)
-
-##### Output 2
-
-![Screenshot Output Unguided 3_2](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_1/output/unguided3_2.png)
+![Screenshot Output Unguided 3_1](https://github.com/hass4ndonnydarmawan/109082500030_Hassan-Donny-Darmawan_SDT/blob/main/modul_2/output/3.png)
 
 ## Penjelasan Kode
+Program ini menunjukkan penggunaan fungsi, prosedur, dan array satu dimensi dalam C++, yaitu fungsi `cariMaks()` dan `cariMin()` yang mengembalikan nilai, serta prosedur `hitungRata()` yang menghitung rata-rata dari sebuah array. Di awal program, `#include <iostream>` memuat pustaka `cin` dan `cout`, sedangkan `using namespace std;` membuat keduanya dapat ditulis tanpa awalan `std::`. Semua fungsi dan prosedur ditulis sebelum `main()` sehingga tidak diperlukan prototipe. Fungsi memiliki tipe keluaran `int` sehingga harus mengembalikan nilai dengan `return`, sedangkan kata kunci `void` pada prosedur menandakan bahwa prosedur tidak mengembalikan nilai.
 
+Fungsi `cariMaks()` menerima array `arr` dan jumlah elemennya `n`. Variabel `maks` diisi terlebih dahulu dengan elemen pertama, yaitu `arr[0]`, sebagai nilai pembanding awal. Perulangan `for` dengan variabel lokal `i` berjalan dari indeks 1 sampai `n-1`. Pada setiap putaran, jika `arr[i]` lebih besar dari `maks`, maka `maks` diperbarui dengan nilai tersebut. Setelah perulangan selesai, `maks` berisi nilai terbesar dan dikembalikan ke pemanggil dengan `return maks;`. Fungsi `cariMin()` memiliki alur yang sama, tetapi kondisinya dibalik menjadi `arr[i] < min` sehingga yang disimpan adalah nilai terkecil.
 
-## Kesimpulan
+Prosedur `hitungRata()` menerima tiga parameter, yaitu array `arr`, jumlah elemen `n`, dan parameter `double &rata` yang bertipe reference (*call by reference*). Variabel lokal `total` diawali dengan 0, lalu perulangan `for` dari indeks 0 sampai `n-1` menjumlahkan seluruh elemen ke dalam `total`. Rata-rata dihitung dengan `(double)total / n`. Konversi `(double)` diperlukan agar pembagian dua bilangan bulat tidak dibulatkan ke bawah, sehingga hasil desimal tetap terjaga. Karena `rata` adalah reference, hasil perhitungan langsung tersimpan di variabel `rata` milik `main()`, tanpa perlu `return`. Parameter `arr` yang berupa array juga tidak disalin, melainkan yang dikirim adalah alamat awalnya.
+
+Di dalam fungsi `main()`, array `arrA` dideklarasikan berukuran 10 dan langsung diisi dengan nilai 48, 2, 7, 21, 5, 20, 77, 9, 10, dan 1. Variabel `n` menyimpan jumlah elemen, `rata` menampung hasil rata-rata, dan `pilih` menyimpan pilihan menu. Perulangan `do-while` menampilkan menu, lalu membaca pilihan dengan `cin`. Jika `pilih` bernilai 1, seluruh isi array dicetak lewat perulangan `for`. Jika bernilai 2 atau 3, program memanggil `cariMaks()` atau `cariMin()` dan langsung menampilkan nilai baliknya dengan `cout`. Jika bernilai 4, program memanggil `hitungRata(arrA, n, rata)` terlebih dahulu, lalu menampilkan isi `rata` di `main()`. Perulangan terus berjalan selama `pilih` tidak sama dengan 0, sehingga pengguna dapat memilih menu berkali-kali. Sebagai contoh, hasil untuk `arrA` adalah nilai maksimum 77, nilai minimum 1, dan rata-rata 20 karena total seluruh elemen adalah 200 dibagi 10 elemen. Program berakhir saat pengguna memasukkan 0, dan ditutup dengan `return 0;`.
 
 ## Kesimpulan
 
