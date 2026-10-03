@@ -303,7 +303,7 @@ Setelah tukarReference: a = 10, b = 5
 
 ## Unguided
 
-### 1. 
+### 1. Buatlah program yang dapat melakukan operasi penjumlahan, pengurangan, dan perkalian matriks 3x3.
 
 ```C++
 #include <iostream>
@@ -406,7 +406,7 @@ Prosedur `tambah()` dan `kurang()` menerima tiga matriks, yaitu `a`, `b`, dan `c
 
 Di dalam fungsi `main()`, dideklarasikan tiga matriks `A`, `B`, dan `C` bertipe `int`, serta variabel `pilih` untuk menyimpan pilihan menu. Program memanggil `inputMatriks(A, 'A')` dan `inputMatriks(B, 'B')` agar pengguna mengisi kedua matriks. Setelah itu, perulangan `do-while` menampilkan menu dan membaca pilihan dengan `cin`. Jika `pilih` bernilai 1, 2, atau 3, program memanggil `tambah()`, `kurang()`, atau `kali()` dengan `C` sebagai penampung hasil, lalu mencetaknya dengan `tampilMatriks(C)`. Perulangan terus berjalan selama `pilih` tidak sama dengan 0, sehingga pengguna bisa mencoba semua operasi tanpa mengisi ulang matriks. Sebagai contoh, jika A berisi 1 sampai 9 secara berurutan dan B berisi 9 sampai 1, maka memilih menu 1 menghasilkan matriks yang seluruh elemennya bernilai 10. Program berakhir saat pengguna memasukkan 0, dan ditutup dengan `return 0;`.
 
-### 2. (isi dengan soal unguided 2)
+### 2. Berdasarkan guided pointer dan reference sebelumnya, buatlah keduanya dapat menukar nilai dari 3 variabel.
 
 ```C++
 #include <iostream>
@@ -467,7 +467,27 @@ Prosedur `tukarReference()` memiliki logika yang sama, tetapi parameternya berti
 
 Di dalam fungsi `main()`, dideklarasikan tiga variabel `x`, `y`, dan `z` bertipe `int`. Program meminta pengguna memasukkan ketiga nilai dengan `cin`, lalu menampilkan nilai sebelum ditukar. Pemanggilan `tukarPointer(&x, &y, &z)` mengirim alamat setiap variabel menggunakan operator `&`, sedangkan `tukarReference(x, y, z)` cukup mengirim variabelnya langsung. Penukaran dilakukan dua kali berturut-turut pada variabel yang sama, sehingga hasil reference adalah hasil pointer yang diputar sekali lagi. Sebagai contoh, jika pengguna memasukkan 1, 2, dan 3, maka setelah `tukarPointer()` nilainya menjadi 2, 3, 1, dan setelah `tukarReference()` nilainya menjadi 3, 1, 2. Program berakhir dengan `return 0;`.
 
-### 3. (isi dengan soal unguided 3)
+**3.** Diketahui sebuah array 1 dimensi sebagai berikut:
+ 
+```
+arrA = {48, 2, 7, 21, 5, 20, 77, 9, 10, 1}
+```
+ 
+Buatlah program yang dapat mencari nilai minimum, maksimum, dan rata-rata dari array tersebut! Kerjakan soal dengan ketentuan:
+ 
+- Untuk mencari nilai minimum dan maksimum, harus dibuat menjadi sebuah function.
+- Untuk mencari rata-rata harus dibuat menjadi sebuah procedure.
+- Buat output di fungsi utama (main) untuk menampilkan nilai rata-rata yang sudah didapatkan melalui procedure sebelumnya. (Gunakan metode pass by reference atau pass by pointer)
+- Buat menu sederhana untuk menjalankan setiap procedure.
+Tampilan menu:
+ 
+```
+--- Menu Program Array ---
+1. Tampilkan isi array
+2. Cari nilai maksimum
+3. Cari nilai minimum
+4. Hitung nilai rata - rata
+```
 
 ```C++
 #include <iostream>
