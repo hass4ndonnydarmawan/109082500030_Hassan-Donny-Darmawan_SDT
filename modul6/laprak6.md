@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 5 - DOUBLY LINKED LIST (BAGIAN PERTAMA)</h1>
+# <h1 align="center">Laporan Praktikum Modul 6 - DOUBLY LINKED LIST (BAGIAN PERTAMA)</h1>
 
 <p align="center">Hassan Donny Darmawan - 109082500030</p>
 
